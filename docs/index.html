@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" href="./favicon.ico" />
+    <!-- Preload is necessary because we show these images when we disconnect from the server,
+    but at that point we cannot load these images from the server -->
+    <link rel="preload" href="./assets/gradient-yHQUC_QB.png" as="image" />
+    <link rel="preload" href="./assets/noise-60BoTA8O.png" as="image" />
+    <!-- Preload the fonts -->
+    <link rel="preload" href="./assets/Lora-VariableFont_wght-CZceb_kH.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Regular-Bam3NpBI.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/PTSans-Bold-C_DwAp7Z.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Regular-CEsLFVD9.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Medium-D5MAsWEG.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+    <link rel="preload" href="./assets/FiraMono-Bold-C6PDArdf.woff2" as="font" type="font/woff2" crossorigin="anonymous" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="a marimo app" />
+    <link rel="apple-touch-icon" href="./apple-touch-icon.png" />
+    <link rel="manifest" href="./manifest.json" />
+
+    <script data-marimo="true">
+      function __resizeIframe(obj) {
+        const scrollbarHeight = 20; // Max between windows, mac, and linux
+
+        function setHeight() {
+          // Guard against race condition where iframe isn't ready
+          if (!obj.contentWindow?.document?.documentElement) {
+            return;
+          }
+          const element = obj.contentWindow.document.documentElement;
+          // If there is no vertical scrollbar, we don't need to resize the iframe
+          if (element.scrollHeight === element.clientHeight) {
+            return;
+          }
+
+          // Create a new height that includes the scrollbar height if it's visible
+          const hasHorizontalScrollbar = element.scrollWidth > element.clientWidth;
+          const newHeight = element.scrollHeight + (hasHorizontalScrollbar ? scrollbarHeight : 0);
+
+          // Only update the height if it's different from the current height
+          if (obj.style.height !== `${newHeight}px`) {
+            obj.style.height = `${newHeight}px`;
+          }
+        }
+
+        // Resize the iframe to the height of the content and bottom scrollbar height
+        setHeight();
+
+        // Resize the iframe when the content changes
+        const resizeObserver = new ResizeObserver((_entries) => {
+          setHeight();
+        });
+        // Only observe if iframe content is ready
+        if (obj.contentWindow?.document?.body) {
+          resizeObserver.observe(obj.contentWindow.document.body);
+        }
+      }
+    </script>
+    <marimo-filename hidden>notebook.py</marimo-filename>
+    <!-- TODO(Trevor): Legacy, required by VS Code plugin. Remove when plugin is updated (see marimo/server/_templates/template.py) -->
+    <marimo-version data-version="{{ version }}" hidden></marimo-version>
+    <marimo-user-config data-config="{{ user_config }}" hidden></marimo-user-config>
+    <marimo-server-token data-token="{{ server_token }}" hidden></marimo-server-token>
+    <!-- /TODO -->
+    <title>examen1 python</title>
+    <script type="module" crossorigin src="./assets/index-CgQsZfww.js"></script>
+    <link rel="modulepreload" crossorigin href="./assets/rolldown-runtime-B0Z9INg1.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-CUdNIagt.js">
+    <link rel="modulepreload" crossorigin href="./assets/compiler-runtime-BQ9S8nyo.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEvent-Dc9HkKI2.js">
+    <link rel="modulepreload" crossorigin href="./assets/react-dom-CKsE8sC1.js">
+    <link rel="modulepreload" crossorigin href="./assets/schemas-BL-NsLlF.js">
+    <link rel="modulepreload" crossorigin href="./assets/isObject-BCaOs5rp.js">
+    <link rel="modulepreload" crossorigin href="./assets/isSymbol-oX0TOjjx.js">
+    <link rel="modulepreload" crossorigin href="./assets/now-Cmx0b_zA.js">
+    <link rel="modulepreload" crossorigin href="./assets/debounce-aFmHgJZY.js">
+    <link rel="modulepreload" crossorigin href="./assets/isArrayLikeObject-DnwgSs_Z.js">
+    <link rel="modulepreload" crossorigin href="./assets/_baseMerge-CQpUq7ep.js">
+    <link rel="modulepreload" crossorigin href="./assets/objects-snlMn4yk.js">
+    <link rel="modulepreload" crossorigin href="./assets/jsx-runtime-B74pBk57.js">
+    <link rel="modulepreload" crossorigin href="./assets/useEventListener-BdZUApHd.js">
+    <link rel="modulepreload" crossorigin href="./assets/invariant-Ci2dTZ72.js">
+    <link rel="modulepreload" crossorigin href="./assets/utils-B3E7otfg.js">
+    <link rel="modulepreload" crossorigin href="./assets/constants-BDbGiS7O.js">
+    <link rel="modulepreload" crossorigin href="./assets/Deferred-CrTnjj37.js">
+    <link rel="modulepreload" crossorigin href="./assets/session-C8nQMsOE.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-CmBpjGXk.js">
+    <link rel="modulepreload" crossorigin href="./assets/clsx-DB0hHKMi.js">
+    <link rel="modulepreload" crossorigin href="./assets/cn-ldLVeaqm.js">
+    <link rel="modulepreload" crossorigin href="./assets/fullscreen-BmzAqMKq.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CyYN7zJg.js">
+    <link rel="modulepreload" crossorigin href="./assets/menu-items-BBdeXCvU.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-restore-focus-B98SEiGc.js">
+    <link rel="modulepreload" crossorigin href="./assets/button-BoklZTGL.js">
+    <link rel="modulepreload" crossorigin href="./assets/createLucideIcon-rHn2EdoM.js">
+    <link rel="modulepreload" crossorigin href="./assets/check-Wea4hZ6R.js">
+    <link rel="modulepreload" crossorigin href="./assets/context-BFOBKCJB.js">
+    <link rel="modulepreload" crossorigin href="./assets/useNumberFormatter-C4-_TnkF.js">
+    <link rel="modulepreload" crossorigin href="./assets/select-BplWpfFo.js">
+    <link rel="modulepreload" crossorigin href="./assets/circle-CeQt3rdW.js">
+    <link rel="modulepreload" crossorigin href="./assets/toast-KNfsFUiB.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-DR2Z2N4w.js">
+    <link rel="modulepreload" crossorigin href="./assets/paths-CzfpItSz.js">
+    <link rel="modulepreload" crossorigin href="./assets/useLifecycle-DKSBdWUf.js">
+    <link rel="modulepreload" crossorigin href="./assets/toDate-BbJ1_N2T.js">
+    <link rel="modulepreload" crossorigin href="./assets/database-zap-CrkOvbyN.js">
+    <link rel="modulepreload" crossorigin href="./assets/alert-dialog-CeE3i3Qa.js">
+    <link rel="modulepreload" crossorigin href="./assets/arrays-BqUx5USx.js">
+    <link rel="modulepreload" crossorigin href="./assets/once-Haz_uxEL.js">
+    <link rel="modulepreload" crossorigin href="./assets/numbers-DsgsDslU.js">
+    <link rel="modulepreload" crossorigin href="./assets/useDebounce-DMbg9X18.js">
+    <link rel="modulepreload" crossorigin href="./assets/input-BDakodZ2.js">
+    <link rel="modulepreload" crossorigin href="./assets/use-toast-CC89xOwH.js">
+    <link rel="modulepreload" crossorigin href="./assets/requests-yTHMxhVa.js">
+    <link rel="modulepreload" crossorigin href="./assets/uuid-k9DpjH68.js">
+    <link rel="modulepreload" crossorigin href="./assets/write-secret-modal-CBUZw27N.js">
+    <link rel="modulepreload" crossorigin href="./assets/plus-gbN72xHe.js">
+    <link rel="modulepreload" crossorigin href="./assets/trash-2-BJG-7Qob.js">
+    <link rel="modulepreload" crossorigin href="./assets/preload-helper-HclGiUj8.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BczecT6V.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BTskHGpb.js">
+    <link rel="modulepreload" crossorigin href="./assets/capabilities-Bj3s1hGN.js">
+    <link rel="modulepreload" crossorigin href="./assets/cjs-C49f7GXV.js">
+    <link rel="modulepreload" crossorigin href="./assets/createReducer-BPvK7C_R.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Ccyblc8N.js">
+    <link rel="modulepreload" crossorigin href="./assets/marked.esm-B_3iMIUq.js">
+    <link rel="modulepreload" crossorigin href="./assets/strings-BHZPE0Mc.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-BN-7G8qZ.js">
+    <link rel="modulepreload" crossorigin href="./assets/badge-DFf033uX.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-CiUBikfn.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-MRn68vX1.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-Bviq_Dee.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DBqBVprh.js">
+    <link rel="modulepreload" crossorigin href="./assets/dist-DueXZKz9.js">
+    <link rel="modulepreload" crossorigin href="./assets/stex-CJTNBbet.js">
+    <link rel="modulepreload" crossorigin href="./assets/useTheme-Ho3YdAx3.js">
+    <link rel="modulepreload" crossorigin href="./assets/useAsyncData-DucTwMkf.js">
+    <link rel="modulepreload" crossorigin href="./assets/purify.es-CYRiAeUx.js">
+    <link rel="modulepreload" crossorigin href="./assets/cells-BcQ8Tm3j.js">
+    <link rel="modulepreload" crossorigin href="./assets/get-DjNf4SIX.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-RyCOE8jo.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-BhJktFeI.js">
+    <link rel="modulepreload" crossorigin href="./assets/copy-icon-DFhUGBjO.js">
+    <link rel="modulepreload" crossorigin href="./assets/ErrorBoundary-DrliQ_7g.js">
+    <link rel="modulepreload" crossorigin href="./assets/config-CMqNngzA.js">
+    <link rel="modulepreload" crossorigin href="./assets/chevron-right-DOPs2jx8.js">
+    <link rel="modulepreload" crossorigin href="./assets/dropdown-menu-VuyoeQOD.js">
+    <link rel="modulepreload" crossorigin href="./assets/LazyAnyLanguageCodeMirror-EBegnOE0.js">
+    <link rel="modulepreload" crossorigin href="./assets/hat-glasses-DVgK5i5l.js">
+    <link rel="modulepreload" crossorigin href="./assets/package-BeYhVWvM.js">
+    <link rel="modulepreload" crossorigin href="./assets/errors-D9vyuMar.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-CNPGWpMu.js">
+    <link rel="modulepreload" crossorigin href="./assets/precisionRound-Bq_nmf5u.js">
+    <link rel="modulepreload" crossorigin href="./assets/defaultLocale-D5bOh7g6.js">
+    <link rel="modulepreload" crossorigin href="./assets/vega-loader.browser-CLRkNgm7.js">
+    <link rel="modulepreload" crossorigin href="./assets/tooltip-B1vGi-z4.js">
+    <link rel="modulepreload" crossorigin href="./assets/micromark-factory-space-D9Dr-k4J.js">
+    <link rel="modulepreload" crossorigin href="./assets/chunk-YOKDWASO-CaoEAGJk.js">
+    <link rel="stylesheet" crossorigin href="./assets/cells-0PFKL3SH.css">
+    <link rel="stylesheet" crossorigin href="./assets/index-2TQenOiQ.css">
+  <marimo-wasm hidden=""></marimo-wasm>
+    <script>
+        if (window.location.protocol === 'file:') {
+            alert('Warning: This file must be served by an HTTP server to function correctly.');
+        }
+    </script>
+    
+    <style>
+        #save-button {
+            display: none !important;
+        }
+        #filename-input {
+            display: none !important;
+        }
+    </style>
+    
+<script data-marimo="true">
+    Object.defineProperty(window, "__MARIMO_EXPORT_CONTEXT__", {
+        value: Object.freeze({
+            trusted: true,
+            notebookCode: "import marimo\n\n__generated_with = \"0.25.0\"\napp = marimo.App(width=\"full\")\n\n\n@app.cell\ndef _():\n    import marimo as mo\n\n    return (mo,)\n\n\n@app.cell\ndef _(mo):\n    mo.md(\"\"\"\n    # \ud83d\udcdd Examen Parcial - Programaci\u00f3n I\n    **Duraci\u00f3n:** 60 minutos | **Total preguntas:** 10\n\n    \u26a0\ufe0f **REGLA IMPORTANTE:** Solo se evaluar\u00e1 la sintaxis estricta revisada en las presentaciones de clase (S2-S6). **No se aceptar\u00e1 el uso de funciones, m\u00e9todos o sintaxis no vistas en el curso.**\n    \"\"\")\n    return\n\n\n@app.cell\ndef _(mo):\n    input_nombre = mo.ui.text(label=\"Nombre Completo:\")\n    input_correo = mo.ui.text(label=\"Correo de la Universidad:\")\n    return input_correo, input_nombre\n\n\n@app.cell\ndef _(input_correo, input_nombre, mo):\n    mo.vstack(\n        [\n            mo.md(\"### \ud83d\udc64 Datos del Alumno\"),\n            input_nombre,\n            input_correo,\n        ]\n    )\n    return\n\n\n@app.cell\ndef _(mo):\n    p1 = mo.ui.code_editor(\n        value=\"# Completa la expresi\u00f3n para que resultado sea 56\\nresultado = \\nprint(resultado)\",\n        language=\"python\",\n    )\n    enunciado_p1 = mo.md(\n        '''\n    ### **Pregunta 1** *(Completar / Jerarqu\u00eda de Operadores)*\n\n    Asigna a `resultado` la expresi\u00f3n que eval\u00faa `(10 + 8 / 2)` multiplicado por `4` respetando la jerarqu\u00eda. Imprime `resultado` con `print()`.\n\n    \u26a0\ufe0f *Nota: No se aceptar\u00e1 sintaxis no revisada en clase.*\n            '''\n    )\n    mo.vstack([enunciado_p1, p1])\n    return (p1,)\n\n\n@app.cell\ndef _(mo):\n    p2 = mo.ui.code_editor(\n        value=\"# Corrige este c\u00f3digo. input() devuelve str, debe sumar decimales\\nv1 = input('V1: ')\\nv2 = input('V2: ')\\nvoltaje_total = v1 + v2\\nprint(voltaje_total)\",\n        language=\"python\",\n    )\n    enunciado_p2 = mo.md(\n        '''\n    ### **Pregunta 2** *(Corregir error / Lectura de Datos)*\n\n    `input()` retorna datos tipo `str`. Corrige las entradas usando `float(input(...))` para convertir a decimales y calcular la suma en `voltaje_total`. Imprime `voltaje_total`.\n\n    \u26a0\ufe0f *Nota: No se aceptar\u00e1 sintaxis no revisada en clase.*\n            '''\n    )\n    mo.vstack([enunciado_p2, p2])\n    return (p2,)\n\n\n@app.cell\ndef _(mo):\n    p3 = mo.ui.code_editor(\n        value=\"lectura = '12'\\nfactor = 2.5\\n# Convierte lectura a int() y multiplica por factor\\nresultado = \\nprint(resultado)\",\n        language=\"python\",\n    )\n    enunciado_p3 = mo.md(\n        '''\n    ### **Pregunta 3** *(Completar / Conversi\u00f3n de Tipos)*\n\n    Dadas `lectura = \"12\"` (cadena) y `factor = 2.5` (flotante), convierte `lectura` a `int()`, multipl\u00edcala por `factor` y asigna a `resultado`. Imprime `resultado`.\n\n    \u26a0\ufe0f *Nota: No se aceptar\u00e1 sintaxis no revisada en clase.*\n            '''\n    )\n    mo.vstack([enunciado_p3, p3])\n    return (p3,)\n\n\n@app.cell\ndef _(mo):\n    p4 = mo.ui.code_editor(\n        value=\"# Escribe aqu\u00ed tu c\u00f3digo Python a partir del pseudoc\u00f3digo\\n\",\n        language=\"python\",\n    )\n    pseudocodigo_p4 = \"Proceso CalcularPotencia\\n    Definir V, I, P Como Real;\\n    Leer V;\\n    Leer I;\\n    P \u003C- V * I;\\n    Escribir P;\\nFinProceso\"\n    enunciado_p4 = mo.md(\n        \"### **Pregunta 4** *(C\u00f3digo desde PSeInt)*\\n\\n\"\n        \"Implementa en Python el siguiente algoritmo PSeInt:\\n\\n\"\n        \"```text\\n\"\n        + pseudocodigo_p4 +\n        \"\\n```\\n\\n\"\n        \"Usa las variables `V` e `I` (con `float(input())`), calcula `P` e impr\u00edmelo con `print(P)`.\\n\\n\"\n        \"\u26a0\ufe0f *Nota: No se aceptar\u00e1 sintaxis no revisada en clase.*\"\n    )\n    mo.vstack([enunciado_p4, p4])\n    return (p4,)\n\n\n@app.cell\ndef _(mo):\n    p5 = mo.ui.code_editor(\n        value=\"# Corrige la sintaxis del condicional\\ntemp = 85.0\\nif temp \u003E 80.0\\n    estado = 'Peligro'\\nelse\\n    estado = 'Normal'\\nprint(estado)\",\n        language=\"python\",\n    )\n    enunciado_p5 = mo.md(\n        '''\n    ### **Pregunta 5** *(Corregir error / Condicional Doble)*\n\n    Corrige la sintaxis de los dos puntos (`:`) en la estructura condicional. Asigna `Peligro` o `Normal` a la variable `estado` e impr\u00edmela.\n\n    \u26a0\ufe0f *Nota: No se aceptar\u00e1 sintaxis no revisada en clase.*\n            '''\n    )\n    mo.vstack([enunciado_p5, p5])\n    return (p5,)\n\n\n@app.cell\ndef _(mo):\n    p6 = mo.ui.code_editor(\n        value=\"voltaje = 150.0\\n# Completa la estructura con if, elif, else para clasificar en 'Alto', 'Medio', 'Bajo'\\ncategoria = \\nprint(categoria)\",\n        language=\"python\",\n    )\n    enunciado_p6 = mo.md(\n        '''\n    ### **Pregunta 6** *(Completar / Condicional M\u00faltiple)*\n\n    Completa la estructura con `if`, `elif` y `else` para clasificar `voltaje = 150.0` en `categoria`:\n\n    - mayor que 220.0  -\u003E  Alto\n    - mayor o igual a 110.0  -\u003E  Medio\n    - otro  -\u003E  Bajo\n\n    Imprime `categoria`.\n\n    \u26a0\ufe0f *Nota: No se aceptar\u00e1 sintaxis no revisada en clase.*\n            '''\n    )\n    mo.vstack([enunciado_p6, p6])\n    return (p6,)\n\n\n@app.cell\ndef _(mo):\n    p7 = mo.ui.code_editor(\n        value=\"# Escribe aqu\u00ed tu c\u00f3digo Python a partir del pseudoc\u00f3digo\\n\",\n        language=\"python\",\n    )\n    pseudocodigo_p7 = \"Proceso EvaluarNota\\n    Definir Definitiva Como Real;\\n    Leer Definitiva;\\n    Si Definitiva \u003E= 3.0 Entonces\\n        Escribir Aprob\u00f3;\\n    SiNo\\n        Escribir Reprob\u00f3;\\n    FinSi\\nFinProceso\"\n    enunciado_p7 = mo.md(\n        \"### **Pregunta 7** *(C\u00f3digo desde PSeInt)*\\n\\n\"\n        \"Traduce a Python el siguiente algoritmo:\\n\\n\"\n        \"```text\\n\"\n        + pseudocodigo_p7 +\n        \"\\n```\\n\\n\"\n        \"Lee `Definitiva` con `float(input())` e imprime Aprob\u00f3 o Reprob\u00f3 con `print()`.\\n\\n\"\n        \"\u26a0\ufe0f *Nota: No se aceptar\u00e1 sintaxis no revisada en clase.*\"\n    )\n    mo.vstack([enunciado_p7, p7])\n    return (p7,)\n\n\n@app.cell\ndef _(mo):\n    p8 = mo.ui.code_editor(\n        value=\"suma = 0\\n# Completa el par\u00e1metro final de range para sumar del 1 al 5\\nfor i in range(1, ):\\n    suma += i\\nprint(suma)\",\n        language=\"python\",\n    )\n    enunciado_p8 = mo.md(\n        '''\n    ### **Pregunta 8** *(Completar / Ciclo for)*\n\n    Completa el par\u00e1metro final de `range(1, ...)` para que el ciclo `for` sume los enteros del 1 al 5 en la variable `suma`. Imprime `suma`.\n\n    \u26a0\ufe0f *Nota: No se aceptar\u00e1 sintaxis no revisada en clase.*\n            '''\n    )\n    mo.vstack([enunciado_p8, p8])\n    return (p8,)\n\n\n@app.cell\ndef _(mo):\n    p9 = mo.ui.code_editor(\n        value=\"# Corrige: falta inicializar el acumulador antes del for\\nfor i in range(3):\\n    medida = float(input())\\n    suma_total += medida\\nprint(suma_total)\",\n        language=\"python\",\n    )\n    enunciado_p9 = mo.md(\n        '''\n    ### **Pregunta 9** *(Corregir error / Acumuladores)*\n\n    Inicializa la variable acumuladora `suma_total` antes del ciclo `for` para acumular 3 mediciones e imprimir `suma_total`.\n\n    \u26a0\ufe0f *Nota: No se aceptar\u00e1 sintaxis no revisada en clase.*\n            '''\n    )\n    mo.vstack([enunciado_p9, p9])\n    return (p9,)\n\n\n@app.cell\ndef _(mo):\n    p10 = mo.ui.code_editor(\n        value=\"# Escribe aqu\u00ed tu c\u00f3digo Python a partir del pseudoc\u00f3digo\\n\",\n        language=\"python\",\n    )\n    pseudocodigo_p10 = \"Proceso PromedioVoltajes\\n    Definir N, i Como Entero;\\n    Definir V, suma, promedio Como Real;\\n    suma \u003C- 0;\\n    Leer N;\\n    Para i \u003C- 0 Hasta N - 1 Con Paso 1 Hacer\\n        Leer V;\\n        suma \u003C- suma + V;\\n    FinPara\\n    promedio \u003C- suma / N;\\n    Escribir promedio;\\nFinProceso\"\n    enunciado_p10 = mo.md(\n        \"### **Pregunta 10** *(C\u00f3digo desde PSeInt)*\\n\\n\"\n        \"Traduce a Python el algoritmo para promediar N voltajes:\\n\\n\"\n        \"```text\\n\"\n        + pseudocodigo_p10 +\n        \"\\n```\\n\\n\"\n        \"Lee `N` con `int(input())`, lee cada `V` con `float(input())` dentro del `for`, guarda el resultado en `promedio` e impr\u00edmelo con `print(promedio)`.\\n\\n\"\n        \"\u26a0\ufe0f *Nota: No se aceptar\u00e1 sintaxis no revisada en clase.*\"\n    )\n    mo.vstack([enunciado_p10, p10])\n    return (p10,)\n\n\n@app.cell\ndef _(input_correo, input_nombre, mo, p1, p10, p2, p3, p4, p5, p6, p7, p8, p9):\n    if not input_nombre.value or not input_correo.value:\n        interfaz_final = mo.md(\"\u26a0\ufe0f **Por favor, ingresa tu nombre y correo arriba para terminar.**\")\n    else:\n        contenido_entrega = (\n            \"ESTUDIANTE: \" + input_nombre.value + \"\\n\"\n            \"CORREO: \" + input_correo.value + \"\\n\"\n            \"--------------------------------------------------\\n\"\n            \"C\u00d3DIGO ENTREGADO POR EL ALUMNO:\\n\"\n            \"--------------------------------------------------\\n\"\n            \"\\n===== PREGUNTA 1 =====\\n\" + p1.value + \"\\n\"\n            \"\\n===== PREGUNTA 2 =====\\n\" + p2.value + \"\\n\"\n            \"\\n===== PREGUNTA 3 =====\\n\" + p3.value + \"\\n\"\n            \"\\n===== PREGUNTA 4 =====\\n\" + p4.value + \"\\n\"\n            \"\\n===== PREGUNTA 5 =====\\n\" + p5.value + \"\\n\"\n            \"\\n===== PREGUNTA 6 =====\\n\" + p6.value + \"\\n\"\n            \"\\n===== PREGUNTA 7 =====\\n\" + p7.value + \"\\n\"\n            \"\\n===== PREGUNTA 8 =====\\n\" + p8.value + \"\\n\"\n            \"\\n===== PREGUNTA 9 =====\\n\" + p9.value + \"\\n\"\n            \"\\n===== PREGUNTA 10 =====\\n\" + p10.value + \"\\n\"\n        )\n\n        interfaz_final = mo.vstack([\n            mo.md(\"### \ud83c\udf89 \u00a1Examen Finalizado!\"),\n            mo.md(\"Haz clic abajo para descargar tu archivo y s\u00fabelo a Microsoft Teams:\"),\n            mo.download(\n                data=contenido_entrega,\n                filename=\"Examen_\" + input_nombre.value.replace(\" \", \"_\") + \".txt\",\n                label=\"\ud83d\udcbe Descargar Archivo (.txt)\",\n            ),\n        ])\n\n    interfaz_final\n    return\n\n\nif __name__ == \"__main__\":\n    app.run()\n",
+        }),
+        writable: false,
+        configurable: false,
+    });
+</script>
+<marimo-code hidden="">import%20marimo%0A%0A__generated_with%20%3D%20%220.25.0%22%0Aapp%20%3D%20marimo.App(width%3D%22full%22)%0A%0A%0A%40app.cell%0Adef%20_()%3A%0A%20%20%20%20import%20marimo%20as%20mo%0A%0A%20%20%20%20return%20(mo%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20mo.md(%22%22%22%0A%20%20%20%20%23%20%F0%9F%93%9D%20Examen%20Parcial%20-%20Programaci%C3%B3n%20I%0A%20%20%20%20**Duraci%C3%B3n%3A**%2060%20minutos%20%7C%20**Total%20preguntas%3A**%2010%0A%0A%20%20%20%20%E2%9A%A0%EF%B8%8F%20**REGLA%20IMPORTANTE%3A**%20Solo%20se%20evaluar%C3%A1%20la%20sintaxis%20estricta%20revisada%20en%20las%20presentaciones%20de%20clase%20(S2-S6).%20**No%20se%20aceptar%C3%A1%20el%20uso%20de%20funciones%2C%20m%C3%A9todos%20o%20sintaxis%20no%20vistas%20en%20el%20curso.**%0A%20%20%20%20%22%22%22)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20input_nombre%20%3D%20mo.ui.text(label%3D%22Nombre%20Completo%3A%22)%0A%20%20%20%20input_correo%20%3D%20mo.ui.text(label%3D%22Correo%20de%20la%20Universidad%3A%22)%0A%20%20%20%20return%20input_correo%2C%20input_nombre%0A%0A%0A%40app.cell%0Adef%20_(input_correo%2C%20input_nombre%2C%20mo)%3A%0A%20%20%20%20mo.vstack(%0A%20%20%20%20%20%20%20%20%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%22%23%23%23%20%F0%9F%91%A4%20Datos%20del%20Alumno%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20input_nombre%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20input_correo%2C%0A%20%20%20%20%20%20%20%20%5D%0A%20%20%20%20)%0A%20%20%20%20return%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20p1%20%3D%20mo.ui.code_editor(%0A%20%20%20%20%20%20%20%20value%3D%22%23%20Completa%20la%20expresi%C3%B3n%20para%20que%20resultado%20sea%2056%5Cnresultado%20%3D%20%5Cnprint(resultado)%22%2C%0A%20%20%20%20%20%20%20%20language%3D%22python%22%2C%0A%20%20%20%20)%0A%20%20%20%20enunciado_p1%20%3D%20mo.md(%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%23%23%23%20**Pregunta%201**%20*(Completar%20%2F%20Jerarqu%C3%ADa%20de%20Operadores)*%0A%0A%20%20%20%20Asigna%20a%20%60resultado%60%20la%20expresi%C3%B3n%20que%20eval%C3%BAa%20%60(10%20%2B%208%20%2F%202)%60%20multiplicado%20por%20%604%60%20respetando%20la%20jerarqu%C3%ADa.%20Imprime%20%60resultado%60%20con%20%60print()%60.%0A%0A%20%20%20%20%E2%9A%A0%EF%B8%8F%20*Nota%3A%20No%20se%20aceptar%C3%A1%20sintaxis%20no%20revisada%20en%20clase.*%0A%20%20%20%20%20%20%20%20%20%20%20%20'''%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%5Benunciado_p1%2C%20p1%5D)%0A%20%20%20%20return%20(p1%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20p2%20%3D%20mo.ui.code_editor(%0A%20%20%20%20%20%20%20%20value%3D%22%23%20Corrige%20este%20c%C3%B3digo.%20input()%20devuelve%20str%2C%20debe%20sumar%20decimales%5Cnv1%20%3D%20input('V1%3A%20')%5Cnv2%20%3D%20input('V2%3A%20')%5Cnvoltaje_total%20%3D%20v1%20%2B%20v2%5Cnprint(voltaje_total)%22%2C%0A%20%20%20%20%20%20%20%20language%3D%22python%22%2C%0A%20%20%20%20)%0A%20%20%20%20enunciado_p2%20%3D%20mo.md(%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%23%23%23%20**Pregunta%202**%20*(Corregir%20error%20%2F%20Lectura%20de%20Datos)*%0A%0A%20%20%20%20%60input()%60%20retorna%20datos%20tipo%20%60str%60.%20Corrige%20las%20entradas%20usando%20%60float(input(...))%60%20para%20convertir%20a%20decimales%20y%20calcular%20la%20suma%20en%20%60voltaje_total%60.%20Imprime%20%60voltaje_total%60.%0A%0A%20%20%20%20%E2%9A%A0%EF%B8%8F%20*Nota%3A%20No%20se%20aceptar%C3%A1%20sintaxis%20no%20revisada%20en%20clase.*%0A%20%20%20%20%20%20%20%20%20%20%20%20'''%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%5Benunciado_p2%2C%20p2%5D)%0A%20%20%20%20return%20(p2%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20p3%20%3D%20mo.ui.code_editor(%0A%20%20%20%20%20%20%20%20value%3D%22lectura%20%3D%20'12'%5Cnfactor%20%3D%202.5%5Cn%23%20Convierte%20lectura%20a%20int()%20y%20multiplica%20por%20factor%5Cnresultado%20%3D%20%5Cnprint(resultado)%22%2C%0A%20%20%20%20%20%20%20%20language%3D%22python%22%2C%0A%20%20%20%20)%0A%20%20%20%20enunciado_p3%20%3D%20mo.md(%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%23%23%23%20**Pregunta%203**%20*(Completar%20%2F%20Conversi%C3%B3n%20de%20Tipos)*%0A%0A%20%20%20%20Dadas%20%60lectura%20%3D%20%2212%22%60%20(cadena)%20y%20%60factor%20%3D%202.5%60%20(flotante)%2C%20convierte%20%60lectura%60%20a%20%60int()%60%2C%20multipl%C3%ADcala%20por%20%60factor%60%20y%20asigna%20a%20%60resultado%60.%20Imprime%20%60resultado%60.%0A%0A%20%20%20%20%E2%9A%A0%EF%B8%8F%20*Nota%3A%20No%20se%20aceptar%C3%A1%20sintaxis%20no%20revisada%20en%20clase.*%0A%20%20%20%20%20%20%20%20%20%20%20%20'''%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%5Benunciado_p3%2C%20p3%5D)%0A%20%20%20%20return%20(p3%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20p4%20%3D%20mo.ui.code_editor(%0A%20%20%20%20%20%20%20%20value%3D%22%23%20Escribe%20aqu%C3%AD%20tu%20c%C3%B3digo%20Python%20a%20partir%20del%20pseudoc%C3%B3digo%5Cn%22%2C%0A%20%20%20%20%20%20%20%20language%3D%22python%22%2C%0A%20%20%20%20)%0A%20%20%20%20pseudocodigo_p4%20%3D%20%22Proceso%20CalcularPotencia%5Cn%20%20%20%20Definir%20V%2C%20I%2C%20P%20Como%20Real%3B%5Cn%20%20%20%20Leer%20V%3B%5Cn%20%20%20%20Leer%20I%3B%5Cn%20%20%20%20P%20%3C-%20V%20*%20I%3B%5Cn%20%20%20%20Escribir%20P%3B%5CnFinProceso%22%0A%20%20%20%20enunciado_p4%20%3D%20mo.md(%0A%20%20%20%20%20%20%20%20%22%23%23%23%20**Pregunta%204**%20*(C%C3%B3digo%20desde%20PSeInt)*%5Cn%5Cn%22%0A%20%20%20%20%20%20%20%20%22Implementa%20en%20Python%20el%20siguiente%20algoritmo%20PSeInt%3A%5Cn%5Cn%22%0A%20%20%20%20%20%20%20%20%22%60%60%60text%5Cn%22%0A%20%20%20%20%20%20%20%20%2B%20pseudocodigo_p4%20%2B%0A%20%20%20%20%20%20%20%20%22%5Cn%60%60%60%5Cn%5Cn%22%0A%20%20%20%20%20%20%20%20%22Usa%20las%20variables%20%60V%60%20e%20%60I%60%20(con%20%60float(input())%60)%2C%20calcula%20%60P%60%20e%20impr%C3%ADmelo%20con%20%60print(P)%60.%5Cn%5Cn%22%0A%20%20%20%20%20%20%20%20%22%E2%9A%A0%EF%B8%8F%20*Nota%3A%20No%20se%20aceptar%C3%A1%20sintaxis%20no%20revisada%20en%20clase.*%22%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%5Benunciado_p4%2C%20p4%5D)%0A%20%20%20%20return%20(p4%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20p5%20%3D%20mo.ui.code_editor(%0A%20%20%20%20%20%20%20%20value%3D%22%23%20Corrige%20la%20sintaxis%20del%20condicional%5Cntemp%20%3D%2085.0%5Cnif%20temp%20%3E%2080.0%5Cn%20%20%20%20estado%20%3D%20'Peligro'%5Cnelse%5Cn%20%20%20%20estado%20%3D%20'Normal'%5Cnprint(estado)%22%2C%0A%20%20%20%20%20%20%20%20language%3D%22python%22%2C%0A%20%20%20%20)%0A%20%20%20%20enunciado_p5%20%3D%20mo.md(%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%23%23%23%20**Pregunta%205**%20*(Corregir%20error%20%2F%20Condicional%20Doble)*%0A%0A%20%20%20%20Corrige%20la%20sintaxis%20de%20los%20dos%20puntos%20(%60%3A%60)%20en%20la%20estructura%20condicional.%20Asigna%20%60Peligro%60%20o%20%60Normal%60%20a%20la%20variable%20%60estado%60%20e%20impr%C3%ADmela.%0A%0A%20%20%20%20%E2%9A%A0%EF%B8%8F%20*Nota%3A%20No%20se%20aceptar%C3%A1%20sintaxis%20no%20revisada%20en%20clase.*%0A%20%20%20%20%20%20%20%20%20%20%20%20'''%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%5Benunciado_p5%2C%20p5%5D)%0A%20%20%20%20return%20(p5%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20p6%20%3D%20mo.ui.code_editor(%0A%20%20%20%20%20%20%20%20value%3D%22voltaje%20%3D%20150.0%5Cn%23%20Completa%20la%20estructura%20con%20if%2C%20elif%2C%20else%20para%20clasificar%20en%20'Alto'%2C%20'Medio'%2C%20'Bajo'%5Cncategoria%20%3D%20%5Cnprint(categoria)%22%2C%0A%20%20%20%20%20%20%20%20language%3D%22python%22%2C%0A%20%20%20%20)%0A%20%20%20%20enunciado_p6%20%3D%20mo.md(%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%23%23%23%20**Pregunta%206**%20*(Completar%20%2F%20Condicional%20M%C3%BAltiple)*%0A%0A%20%20%20%20Completa%20la%20estructura%20con%20%60if%60%2C%20%60elif%60%20y%20%60else%60%20para%20clasificar%20%60voltaje%20%3D%20150.0%60%20en%20%60categoria%60%3A%0A%0A%20%20%20%20-%20mayor%20que%20220.0%20%20-%3E%20%20Alto%0A%20%20%20%20-%20mayor%20o%20igual%20a%20110.0%20%20-%3E%20%20Medio%0A%20%20%20%20-%20otro%20%20-%3E%20%20Bajo%0A%0A%20%20%20%20Imprime%20%60categoria%60.%0A%0A%20%20%20%20%E2%9A%A0%EF%B8%8F%20*Nota%3A%20No%20se%20aceptar%C3%A1%20sintaxis%20no%20revisada%20en%20clase.*%0A%20%20%20%20%20%20%20%20%20%20%20%20'''%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%5Benunciado_p6%2C%20p6%5D)%0A%20%20%20%20return%20(p6%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20p7%20%3D%20mo.ui.code_editor(%0A%20%20%20%20%20%20%20%20value%3D%22%23%20Escribe%20aqu%C3%AD%20tu%20c%C3%B3digo%20Python%20a%20partir%20del%20pseudoc%C3%B3digo%5Cn%22%2C%0A%20%20%20%20%20%20%20%20language%3D%22python%22%2C%0A%20%20%20%20)%0A%20%20%20%20pseudocodigo_p7%20%3D%20%22Proceso%20EvaluarNota%5Cn%20%20%20%20Definir%20Definitiva%20Como%20Real%3B%5Cn%20%20%20%20Leer%20Definitiva%3B%5Cn%20%20%20%20Si%20Definitiva%20%3E%3D%203.0%20Entonces%5Cn%20%20%20%20%20%20%20%20Escribir%20Aprob%C3%B3%3B%5Cn%20%20%20%20SiNo%5Cn%20%20%20%20%20%20%20%20Escribir%20Reprob%C3%B3%3B%5Cn%20%20%20%20FinSi%5CnFinProceso%22%0A%20%20%20%20enunciado_p7%20%3D%20mo.md(%0A%20%20%20%20%20%20%20%20%22%23%23%23%20**Pregunta%207**%20*(C%C3%B3digo%20desde%20PSeInt)*%5Cn%5Cn%22%0A%20%20%20%20%20%20%20%20%22Traduce%20a%20Python%20el%20siguiente%20algoritmo%3A%5Cn%5Cn%22%0A%20%20%20%20%20%20%20%20%22%60%60%60text%5Cn%22%0A%20%20%20%20%20%20%20%20%2B%20pseudocodigo_p7%20%2B%0A%20%20%20%20%20%20%20%20%22%5Cn%60%60%60%5Cn%5Cn%22%0A%20%20%20%20%20%20%20%20%22Lee%20%60Definitiva%60%20con%20%60float(input())%60%20e%20imprime%20Aprob%C3%B3%20o%20Reprob%C3%B3%20con%20%60print()%60.%5Cn%5Cn%22%0A%20%20%20%20%20%20%20%20%22%E2%9A%A0%EF%B8%8F%20*Nota%3A%20No%20se%20aceptar%C3%A1%20sintaxis%20no%20revisada%20en%20clase.*%22%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%5Benunciado_p7%2C%20p7%5D)%0A%20%20%20%20return%20(p7%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20p8%20%3D%20mo.ui.code_editor(%0A%20%20%20%20%20%20%20%20value%3D%22suma%20%3D%200%5Cn%23%20Completa%20el%20par%C3%A1metro%20final%20de%20range%20para%20sumar%20del%201%20al%205%5Cnfor%20i%20in%20range(1%2C%20)%3A%5Cn%20%20%20%20suma%20%2B%3D%20i%5Cnprint(suma)%22%2C%0A%20%20%20%20%20%20%20%20language%3D%22python%22%2C%0A%20%20%20%20)%0A%20%20%20%20enunciado_p8%20%3D%20mo.md(%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%23%23%23%20**Pregunta%208**%20*(Completar%20%2F%20Ciclo%20for)*%0A%0A%20%20%20%20Completa%20el%20par%C3%A1metro%20final%20de%20%60range(1%2C%20...)%60%20para%20que%20el%20ciclo%20%60for%60%20sume%20los%20enteros%20del%201%20al%205%20en%20la%20variable%20%60suma%60.%20Imprime%20%60suma%60.%0A%0A%20%20%20%20%E2%9A%A0%EF%B8%8F%20*Nota%3A%20No%20se%20aceptar%C3%A1%20sintaxis%20no%20revisada%20en%20clase.*%0A%20%20%20%20%20%20%20%20%20%20%20%20'''%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%5Benunciado_p8%2C%20p8%5D)%0A%20%20%20%20return%20(p8%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20p9%20%3D%20mo.ui.code_editor(%0A%20%20%20%20%20%20%20%20value%3D%22%23%20Corrige%3A%20falta%20inicializar%20el%20acumulador%20antes%20del%20for%5Cnfor%20i%20in%20range(3)%3A%5Cn%20%20%20%20medida%20%3D%20float(input())%5Cn%20%20%20%20suma_total%20%2B%3D%20medida%5Cnprint(suma_total)%22%2C%0A%20%20%20%20%20%20%20%20language%3D%22python%22%2C%0A%20%20%20%20)%0A%20%20%20%20enunciado_p9%20%3D%20mo.md(%0A%20%20%20%20%20%20%20%20'''%0A%20%20%20%20%23%23%23%20**Pregunta%209**%20*(Corregir%20error%20%2F%20Acumuladores)*%0A%0A%20%20%20%20Inicializa%20la%20variable%20acumuladora%20%60suma_total%60%20antes%20del%20ciclo%20%60for%60%20para%20acumular%203%20mediciones%20e%20imprimir%20%60suma_total%60.%0A%0A%20%20%20%20%E2%9A%A0%EF%B8%8F%20*Nota%3A%20No%20se%20aceptar%C3%A1%20sintaxis%20no%20revisada%20en%20clase.*%0A%20%20%20%20%20%20%20%20%20%20%20%20'''%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%5Benunciado_p9%2C%20p9%5D)%0A%20%20%20%20return%20(p9%2C)%0A%0A%0A%40app.cell%0Adef%20_(mo)%3A%0A%20%20%20%20p10%20%3D%20mo.ui.code_editor(%0A%20%20%20%20%20%20%20%20value%3D%22%23%20Escribe%20aqu%C3%AD%20tu%20c%C3%B3digo%20Python%20a%20partir%20del%20pseudoc%C3%B3digo%5Cn%22%2C%0A%20%20%20%20%20%20%20%20language%3D%22python%22%2C%0A%20%20%20%20)%0A%20%20%20%20pseudocodigo_p10%20%3D%20%22Proceso%20PromedioVoltajes%5Cn%20%20%20%20Definir%20N%2C%20i%20Como%20Entero%3B%5Cn%20%20%20%20Definir%20V%2C%20suma%2C%20promedio%20Como%20Real%3B%5Cn%20%20%20%20suma%20%3C-%200%3B%5Cn%20%20%20%20Leer%20N%3B%5Cn%20%20%20%20Para%20i%20%3C-%200%20Hasta%20N%20-%201%20Con%20Paso%201%20Hacer%5Cn%20%20%20%20%20%20%20%20Leer%20V%3B%5Cn%20%20%20%20%20%20%20%20suma%20%3C-%20suma%20%2B%20V%3B%5Cn%20%20%20%20FinPara%5Cn%20%20%20%20promedio%20%3C-%20suma%20%2F%20N%3B%5Cn%20%20%20%20Escribir%20promedio%3B%5CnFinProceso%22%0A%20%20%20%20enunciado_p10%20%3D%20mo.md(%0A%20%20%20%20%20%20%20%20%22%23%23%23%20**Pregunta%2010**%20*(C%C3%B3digo%20desde%20PSeInt)*%5Cn%5Cn%22%0A%20%20%20%20%20%20%20%20%22Traduce%20a%20Python%20el%20algoritmo%20para%20promediar%20N%20voltajes%3A%5Cn%5Cn%22%0A%20%20%20%20%20%20%20%20%22%60%60%60text%5Cn%22%0A%20%20%20%20%20%20%20%20%2B%20pseudocodigo_p10%20%2B%0A%20%20%20%20%20%20%20%20%22%5Cn%60%60%60%5Cn%5Cn%22%0A%20%20%20%20%20%20%20%20%22Lee%20%60N%60%20con%20%60int(input())%60%2C%20lee%20cada%20%60V%60%20con%20%60float(input())%60%20dentro%20del%20%60for%60%2C%20guarda%20el%20resultado%20en%20%60promedio%60%20e%20impr%C3%ADmelo%20con%20%60print(promedio)%60.%5Cn%5Cn%22%0A%20%20%20%20%20%20%20%20%22%E2%9A%A0%EF%B8%8F%20*Nota%3A%20No%20se%20aceptar%C3%A1%20sintaxis%20no%20revisada%20en%20clase.*%22%0A%20%20%20%20)%0A%20%20%20%20mo.vstack(%5Benunciado_p10%2C%20p10%5D)%0A%20%20%20%20return%20(p10%2C)%0A%0A%0A%40app.cell%0Adef%20_(input_correo%2C%20input_nombre%2C%20mo%2C%20p1%2C%20p10%2C%20p2%2C%20p3%2C%20p4%2C%20p5%2C%20p6%2C%20p7%2C%20p8%2C%20p9)%3A%0A%20%20%20%20if%20not%20input_nombre.value%20or%20not%20input_correo.value%3A%0A%20%20%20%20%20%20%20%20interfaz_final%20%3D%20mo.md(%22%E2%9A%A0%EF%B8%8F%20**Por%20favor%2C%20ingresa%20tu%20nombre%20y%20correo%20arriba%20para%20terminar.**%22)%0A%20%20%20%20else%3A%0A%20%20%20%20%20%20%20%20contenido_entrega%20%3D%20(%0A%20%20%20%20%20%20%20%20%20%20%20%20%22ESTUDIANTE%3A%20%22%20%2B%20input_nombre.value%20%2B%20%22%5Cn%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22CORREO%3A%20%22%20%2B%20input_correo.value%20%2B%20%22%5Cn%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22--------------------------------------------------%5Cn%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22C%C3%93DIGO%20ENTREGADO%20POR%20EL%20ALUMNO%3A%5Cn%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22--------------------------------------------------%5Cn%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%5Cn%3D%3D%3D%3D%3D%20PREGUNTA%201%20%3D%3D%3D%3D%3D%5Cn%22%20%2B%20p1.value%20%2B%20%22%5Cn%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%5Cn%3D%3D%3D%3D%3D%20PREGUNTA%202%20%3D%3D%3D%3D%3D%5Cn%22%20%2B%20p2.value%20%2B%20%22%5Cn%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%5Cn%3D%3D%3D%3D%3D%20PREGUNTA%203%20%3D%3D%3D%3D%3D%5Cn%22%20%2B%20p3.value%20%2B%20%22%5Cn%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%5Cn%3D%3D%3D%3D%3D%20PREGUNTA%204%20%3D%3D%3D%3D%3D%5Cn%22%20%2B%20p4.value%20%2B%20%22%5Cn%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%5Cn%3D%3D%3D%3D%3D%20PREGUNTA%205%20%3D%3D%3D%3D%3D%5Cn%22%20%2B%20p5.value%20%2B%20%22%5Cn%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%5Cn%3D%3D%3D%3D%3D%20PREGUNTA%206%20%3D%3D%3D%3D%3D%5Cn%22%20%2B%20p6.value%20%2B%20%22%5Cn%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%5Cn%3D%3D%3D%3D%3D%20PREGUNTA%207%20%3D%3D%3D%3D%3D%5Cn%22%20%2B%20p7.value%20%2B%20%22%5Cn%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%5Cn%3D%3D%3D%3D%3D%20PREGUNTA%208%20%3D%3D%3D%3D%3D%5Cn%22%20%2B%20p8.value%20%2B%20%22%5Cn%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%5Cn%3D%3D%3D%3D%3D%20PREGUNTA%209%20%3D%3D%3D%3D%3D%5Cn%22%20%2B%20p9.value%20%2B%20%22%5Cn%22%0A%20%20%20%20%20%20%20%20%20%20%20%20%22%5Cn%3D%3D%3D%3D%3D%20PREGUNTA%2010%20%3D%3D%3D%3D%3D%5Cn%22%20%2B%20p10.value%20%2B%20%22%5Cn%22%0A%20%20%20%20%20%20%20%20)%0A%0A%20%20%20%20%20%20%20%20interfaz_final%20%3D%20mo.vstack(%5B%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%22%23%23%23%20%F0%9F%8E%89%20%C2%A1Examen%20Finalizado!%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.md(%22Haz%20clic%20abajo%20para%20descargar%20tu%20archivo%20y%20s%C3%BAbelo%20a%20Microsoft%20Teams%3A%22)%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20mo.download(%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20data%3Dcontenido_entrega%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20filename%3D%22Examen_%22%20%2B%20input_nombre.value.replace(%22%20%22%2C%20%22_%22)%20%2B%20%22.txt%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20label%3D%22%F0%9F%92%BE%20Descargar%20Archivo%20(.txt)%22%2C%0A%20%20%20%20%20%20%20%20%20%20%20%20)%2C%0A%20%20%20%20%20%20%20%20%5D)%0A%0A%20%20%20%20interfaz_final%0A%20%20%20%20return%0A%0A%0Aif%20__name__%20%3D%3D%20%22__main__%22%3A%0A%20%20%20%20app.run()%0A</marimo-code></head>
+  <body>
+    <div id="root"></div>
+    <script data-marimo="true">
+      Object.defineProperty(window, "__MARIMO_MOUNT_CONFIG__", {
+        value: Object.freeze({
+            "filename": "notebook.py",
+            "cwd": "",
+            "lspWorkspace": null,
+            "mode": "read",
+            "version": "0.25.0",
+            "serverToken": "unused",
+            "config": {"ai": {"allow_provider_config": true, "custom_providers": {}, "enabled": true, "models": {"custom_models": [], "displayed_models": []}}, "completion": {"activate_on_typing": true, "auto_close_pairs": true, "copilot": false, "signature_hint_on_typing": false}, "diagnostics": {"sql_linter": true}, "display": {"cell_output": "below", "code_editor_font_size": 14, "code_lens": true, "dataframes": "rich", "default_table_max_columns": 50, "default_table_page_size": 10, "default_width": "medium", "reference_highlighting": true, "theme": "light"}, "formatting": {"line_length": 79}, "keymap": {"overrides": {}, "preset": "default"}, "language_servers": {"pylsp": {"enable_flake8": false, "enable_mypy": true, "enable_pydocstyle": false, "enable_pyflakes": false, "enable_pylint": false, "enable_ruff": true, "enabled": false}}, "mcp": {"mcpServers": {}, "presets": []}, "package_management": {"manager": "pip"}, "runtime": {"auto_instantiate": false, "auto_reload": "off", "default_csv_encoding": "utf-8", "default_sql_output": "auto", "on_cell_change": "autorun", "output_max_bytes": 8000000, "reactive_tests": true, "show_tracebacks": false, "std_stream_max_bytes": 1000000, "watcher_on_save": "lazy"}, "save": {"autosave": "off", "autosave_delay": 1000, "format_on_save": false}, "server": {"browser": "default", "follow_symlink": false}, "snippets": {"custom_paths": [], "include_default_snippets": true}},
+            "configOverrides": {},
+            "appConfig": {"sql_output": "auto", "width": "full"},
+            "layout": null,
+            "view": {"showAppCode": false},
+            "notebook": null,
+            "session": null,
+            "runtimeConfig": null
+        }),
+        writable: false,
+        configurable: false,
+      });
+    </script>
+  </body>
+</html>
